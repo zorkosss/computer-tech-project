@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Calculator with Two's Complement</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="calculator">
+        <h1>Binary Calculator</h1>
+        
+        <!-- Main Tabs -->
+        <div class="tabs">
+            <button class="tab-button active" data-tab="calculator">Calculator</button>
+            <button class="tab-button" data-tab="twos-complement">Two's Complement Guide</button>
+            <button class="tab-button" data-tab="tutorial">Tutorial</button>
+        </div>
+        
+        <!-- Calculator Tab -->
+        <div id="calculator" class="tab-content active">
+            <div class="input-section">
+                <div class="input-group">
+                    <label for="number1">First Number</label>
+                    <input type="text" id="number1" placeholder="Enter number (e.g., 25, 0xFF)">
+                    <select id="base1" aria-label="Base for First Number">
+                        <option value="auto">Auto-detect</option>
+                        <option value="dec">Decimal</option>
+                        <option value="hex">Hexadecimal</option>
+                        <option value="oct">Octal</option>
+                        <option value="bin">Binary</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="operation">Operation</label>
+                    <select id="operation">
+                        <option value="add">+ Add</option>
+                        <option value="sub">- Subtract</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="number2">Second Number</label>
+                    <input type="text" id="number2" placeholder="Enter number (e.g., -10, 0b1011)">
+                    <select id="base2" aria-label="Base for Second Number">
+                        <option value="auto">Auto-detect</option>
+                        <option value="dec">Decimal</option>
+                        <option value="hex">Hexadecimal</option>
+                        <option value="oct">Octal</option>
+                        <option value="bin">Binary</option>
+                    </select>
+                </div>
+                <div class="options-group">
+                    <div class="option">
+                        <label for="bitLength">Bit Length:</label>
+                        <select id="bitLength">
+                            <option value="8">8-bit</option>
+                            <option value="16" selected>16-bit</option>
+                            <option value="32">32-bit</option>
+                            <option value="64">64-bit</option>
+                        </select>
+                    </div>
+                    <div class="option">
+                        <label for="showSteps">Show Steps:</label>
+                        <input type="checkbox" id="showSteps" checked>
+                    </div>
+                </div>
+                <div class="button-group">
+                    <button id="calculate" class="btn primary">Calculate</button>
+                    <button id="clear" class="btn secondary">Clear All</button>
+                </div>
+            </div>
+            <div class="result-section">
+                <div class="result-tabs">
+                    <button class="result-tab active" data-tab="result">Result</button>
+                    <button class="result-tab" data-tab="steps">Calculation Steps</button>
+                    <button class="result-tab" data-tab="binary">Binary View</button>
+                </div>
+                <div id="result-content" class="result-content">
+                    <div id="result" class="result-container active"></div>
+                    <div id="steps" class="steps-container"></div>
+                    <div id="binary" class="binary-container"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Two's Complement Guide Tab (Content Restored) -->
+        <div id="twos-complement" class="tab-content">
+            <div class="guide-container">
+                <h2>Understanding Two's Complement</h2>
+                <div class="guide-section">
+                    <h3>What is Two's Complement?</h3>
+                    <p>Two's complement is a mathematical operation on binary numbers. It's the most common method computers use to represent signed integers (positive, negative, and zero).</p>
+                    <h3>How to Find the Two's Complement of a Negative Number</h3>
+                    <ol>
+                        <li>Start with the positive version of the number (e.g., for -7, start with 7).</li>
+                        <li>Convert this positive number to binary, padding with leading zeros to the correct bit length.</li>
+                        <li>Invert all the bits (change 0s to 1s and 1s to 0s). This is called the "one's complement".</li>
+                        <li>Add 1 to the result.</li>
+                    </ol>
+                    <h3>Example: Find -5 in 8-bit</h3>
+                    <div class="example">
+                        <p>1. Positive 5 in 8-bit binary is: <code>0000 0101</code></p>
+                        <p>2. Invert the bits: <code>1111 1010</code></p>
+                        <p>3. Add 1: <code>1111 1011</code> (this is -5 in two's complement)</p>
+                    </div>
+                </div>
+                <div class="guide-section">
+                    <h3>Practice Problems</h3>
+                    <div class="problem">
+                        <p>1. Find the 8-bit two's complement of <strong>-12</strong>.</p>
+                        <button class="btn small" onclick="showSolution(1)">Show Solution</button>
+                        <div id="solution1" class="solution"></div>
+                    </div>
+                    <div class="problem">
+                        <p>2. What decimal number does <code>1111 0000</code> represent in 8-bit two's complement?</p>
+                        <button class="btn small" onclick="showSolution(2)">Show Solution</button>
+                        <div id="solution2" class="solution"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tutorial Tab (Content Restored) -->
+        <div id="tutorial" class="tab-content">
+            <div class="tutorial-container">
+                <h2>How to Use the Calculator</h2>
+                <div class="tutorial-step">
+                    <h3>1. Entering Numbers</h3>
+                    <p>You can enter numbers in different formats. The calculator will automatically detect the base.</p>
+                    <ul>
+                        <li>For <strong>Hexadecimal</strong>, start with <code>0x</code> or include letters A-F (e.g., <code>0x1A</code> or <code>1A</code>).</li>
+                        <li>For <strong>Binary</strong>, start with <code>0b</code> (e.g., <code>0b1011</code>).</li>
+                        <li>For <strong>Decimal</strong>, just enter the number (e.g., <code>26</code>).</li>
+                    </ul>
+                    <p>You can also manually select a base from the dropdown next to the input field.</p>
+                </div>
+                <div class="tutorial-step">
+                    <h3>2. Understanding the Results</h3>
+                    <p>The final answer is shown prominently in the "Result" tab. For a detailed breakdown, explore the other tabs:</p>
+                    <ul>
+                        <li><strong>Calculation Steps:</strong> Shows a full, educational walkthrough of the two's complement addition or subtraction.</li>
+                        <li><strong>Binary View:</strong> Provides a simple visual alignment of the binary numbers.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
