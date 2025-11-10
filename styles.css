@@ -2,28 +2,15 @@
 /* Global Styles & Variables                    */
 /* ============================================ */
 :root {
-    --primary-color: #2563eb;
-    --primary-hover: #1d4ed8;
-    --secondary-color: #475569;
-    --danger-color: #dc2626;
-    --danger-bg: #fef2f2;
-    --success-color: #059669;
-    --warning-color: #f59e0b;
-    --warning-bg: #fffbeb;
-    
-    --bg-color: #f1f5f9;
-    --card-bg: #ffffff;
-    --text-color: #1e293b;
-    --muted-text-color: #64748b;
-    --border-color: #e2e8f0;
-    --input-bg: #f8fafc;
-
+    --primary-color: #2563eb; --primary-hover: #1d4ed8; --secondary-color: #475569;
+    --danger-color: #dc2626; --danger-bg: #fef2f2; --success-color: #059669;
+    --warning-color: #d97706; --warning-bg: #fffbeb; --bg-color: #f1f5f9;
+    --card-bg: #ffffff; --text-color: #1e293b; --muted-text-color: #64748b;
+    --border-color: #e2e8f0; --input-bg: #f8fafc;
     --font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     --monospace-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
 }
-
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
 body { background-color: var(--bg-color); color: var(--text-color); font-family: var(--font-family); line-height: 1.6; padding: 2rem; }
 
 /* ============================================ */
@@ -70,7 +57,7 @@ h3 { font-size: 1.25rem; color: var(--text-color); margin-top: 2rem; margin-bott
 .result-content { padding: 0; background-color: #fff; min-height: 200px; }
 .result-container, .steps-container, .binary-container { display: none; }
 .result-container.active, .steps-container.active, .binary-container.active { display: block; }
-.result-hero { background-color: var(--primary-color); color: white; padding: 2rem; text-align: center; }
+.result-hero { background-color: var(--primary-color); color: white; padding: 2rem; text-align: center; position: relative; }
 .result-hero .result-equation { font-size: 1.25rem; opacity: 0.8; margin-bottom: 0.5rem; }
 .result-hero .result-value { font-size: 3rem; font-weight: 700; }
 .result-details { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1px; background-color: var(--border-color); padding: 1px 0 0 1px; }
@@ -81,8 +68,12 @@ h3 { font-size: 1.25rem; color: var(--text-color); margin-top: 2rem; margin-bott
 .result-data.hex { color: var(--success-color); }
 .result-data.octal { color: var(--warning-color); }
 .error-message { padding: 2rem; color: var(--danger-color); font-weight: 500; background-color: var(--danger-bg); }
-.overflow-warning { margin: 1rem 2rem 2rem 2rem; padding: 1rem; background-color: var(--warning-bg); border: 1px solid var(--warning-color); border-radius: 8px; }
-.overflow-warning strong { color: #d97706; }
+
+/* NEW Overflow Styles */
+.overflow-display { background-color: var(--warning-bg); padding: 1.5rem 2rem; border-bottom: 1px solid var(--border-color); }
+.overflow-display h4 { color: var(--warning-color); margin:0 0 0.75rem 0; font-size:1.1rem; }
+.overflow-results { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.overflow-results .result-value { font-size: 1.5rem; font-weight: 600; color: var(--text-color); }
 
 /* ============================================ */
 /* Steps, Guide, Tutorial & Binary View       */
