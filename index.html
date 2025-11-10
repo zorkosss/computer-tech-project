@@ -37,7 +37,7 @@
                 </div>
                 <div class="input-group">
                     <label for="number2">Second Number</label>
-                    <input type="text" id="number2" placeholder="e.g., -10 or -0b1011">
+                    <input type="text" id="number2" placeholder="e.g., -10 or 0b1011">
                     <select id="base2" aria-label="Base for Second Number">
                         <option value="auto">Auto-detect</option>
                         <option value="dec">Decimal</option>
@@ -125,17 +125,18 @@
                     <ul>
                         <li>For <strong>Hexadecimal</strong>, start with <code>0x</code> or include letters A-F (e.g., <code>0x1A</code> or <code>1A</code>).</li>
                         <li>For <strong>Binary</strong>, start with <code>0b</code> (e.g., <code>0b1011</code>).</li>
+                         <li>For <strong>Octal</strong>, start with <code>0o</code> (e.g., <code>0o77</code>).</li>
                         <li>For <strong>Decimal</strong>, just enter the number (e.g., <code>26</code>).</li>
                     </ul>
-                    <p>You can also manually select a base from the dropdown next to the input field.</p>
+                    <p>If you manually select a base (e.g., "Hexadecimal"), you don't need to include a prefix.</p>
                 </div>
                  <div class="tutorial-step">
                     <h3>2. Bit Length and Range</h3>
                     <p>The selected bit length determines the range of valid numbers. For example, signed 8-bit integers can range from -128 to 127. The calculator will show an error if you enter a number outside this range.</p>
                 </div>
                 <div class="tutorial-step">
-                    <h3>3. Understanding the Results</h3>
-                    <p>If a calculation results in a number that is too large or too small for the selected bit length, an <strong>overflow warning</strong> will be shown. This explains the difference between the true mathematical result and the "wrapped-around" result that occurs in computer hardware.</p>
+                    <h3>3. Understanding Overflow</h3>
+                    <p>If a calculation results in a number that is too large or too small for the selected bit length, an <strong>overflow warning</strong> will be shown. It will display both the true mathematical result and the "wrapped-around" result that occurs in computer hardware.</p>
                 </div>
             </div>
         </div>
