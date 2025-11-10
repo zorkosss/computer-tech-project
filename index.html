@@ -9,20 +9,17 @@
 <body>
     <div class="calculator">
         <h1>Binary Calculator</h1>
-        
-        <!-- Main Tabs -->
         <div class="tabs">
             <button class="tab-button active" data-tab="calculator">Calculator</button>
             <button class="tab-button" data-tab="twos-complement">Two's Complement Guide</button>
             <button class="tab-button" data-tab="tutorial">Tutorial</button>
         </div>
         
-        <!-- Calculator Tab -->
         <div id="calculator" class="tab-content active">
             <div class="input-section">
                 <div class="input-group">
                     <label for="number1">First Number</label>
-                    <input type="text" id="number1" placeholder="Enter number (e.g., 25, 0xFF)">
+                    <input type="text" id="number1" placeholder="e.g., 25 or 0xFF">
                     <select id="base1" aria-label="Base for First Number">
                         <option value="auto">Auto-detect</option>
                         <option value="dec">Decimal</option>
@@ -40,7 +37,7 @@
                 </div>
                 <div class="input-group">
                     <label for="number2">Second Number</label>
-                    <input type="text" id="number2" placeholder="Enter number (e.g., -10, 0b1011)">
+                    <input type="text" id="number2" placeholder="e.g., -10 or -0b1011">
                     <select id="base2" aria-label="Base for Second Number">
                         <option value="auto">Auto-detect</option>
                         <option value="dec">Decimal</option>
@@ -83,9 +80,8 @@
             </div>
         </div>
         
-        <!-- Two's Complement Guide Tab (Content Restored) -->
         <div id="twos-complement" class="tab-content">
-            <div class="guide-container">
+             <div class="guide-container">
                 <h2>Understanding Two's Complement</h2>
                 <div class="guide-section">
                     <h3>What is Two's Complement?</h3>
@@ -120,7 +116,6 @@
             </div>
         </div>
         
-        <!-- Tutorial Tab (Content Restored) -->
         <div id="tutorial" class="tab-content">
             <div class="tutorial-container">
                 <h2>How to Use the Calculator</h2>
@@ -134,13 +129,13 @@
                     </ul>
                     <p>You can also manually select a base from the dropdown next to the input field.</p>
                 </div>
+                 <div class="tutorial-step">
+                    <h3>2. Bit Length and Range</h3>
+                    <p>The selected bit length determines the range of valid numbers. For example, signed 8-bit integers can range from -128 to 127. The calculator will show an error if you enter a number outside this range.</p>
+                </div>
                 <div class="tutorial-step">
-                    <h3>2. Understanding the Results</h3>
-                    <p>The final answer is shown prominently in the "Result" tab. For a detailed breakdown, explore the other tabs:</p>
-                    <ul>
-                        <li><strong>Calculation Steps:</strong> Shows a full, educational walkthrough of the two's complement addition or subtraction.</li>
-                        <li><strong>Binary View:</strong> Provides a simple visual alignment of the binary numbers.</li>
-                    </ul>
+                    <h3>3. Understanding the Results</h3>
+                    <p>If a calculation results in a number that is too large or too small for the selected bit length, an <strong>overflow warning</strong> will be shown. This explains the difference between the true mathematical result and the "wrapped-around" result that occurs in computer hardware.</p>
                 </div>
             </div>
         </div>
